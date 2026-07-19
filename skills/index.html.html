@@ -159,36 +159,42 @@
 </head>
 
 <script>
-    // Automatically highlights the active link based on the clean URL directory
-    const currentPath = window.location.pathname;
+    document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname.toLowerCase();
+    const navLinks = document.querySelectorAll(".nav-links a");
 
-    if (currentPath === '/' || currentPath.endsWith('index.html')) {
-    document.getElementById('nav-home').classList.add('active');
-    } else if (currentPath.includes('/experience')) {
-    document.getElementById('nav-experience').classList.add('active');
-    } else if (currentPath.includes('/projects')) {
-    document.getElementById('nav-projects').classList.add('active');
-    } else if (currentPath.includes('/skills')) {
-    document.getElementById('nav-skills').classList.add('active');
-    } else if (currentPath.includes('/contact')) {
-    document.getElementById('nav-contact').classList.add('active');
+    navLinks.forEach(link => {
+    const text = link.textContent.toLowerCase().trim();
+
+    // Match based on page content name
+    if ((currentPath === "/" || currentPath.includes("index.html")) && text === "home") {
+    link.classList.add("active");
+    } else if (currentPath.includes("experience") && text === "experience") {
+    link.classList.add("active");
+    } else if (currentPath.includes("projects") && text === "projects") {
+    link.classList.add("active");
+    } else if (currentPath.includes("skills") && text.includes("skills")) {
+    link.classList.add("active");
+    } else if (currentPath.includes("contact") && text === "contact") {
+    link.classList.add("active");
     }
+    });
+    });
 </script>
 
 <body>
     <nav>
         <div class="nav-container">
-            <a href="/" class="logo">JS</a>
+            <a href="../index.html" class="logo">JS</a>
             <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/experience/">Experience</a></li>
-                <li><a href="/projects/">Projects</a></li>
-                <li><a href="/skills/">Skills & Certs</a></li>
-                <li><a href="/contact/">Contact</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../experience/">Experience</a></li>
+                <li><a href="../projects/">Projects</a></li>
+                <li><a href="../skills/">Skills & Certs</a></li>
+                <li><a href="../contact/">Contact</a></li>
             </ul>
         </div>
     </nav>
-
     <main class="container">
         <h2 class="section-title">Technical Expertise & Certifications</h2>
 
