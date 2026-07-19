@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%231a73e8'/><stop offset='50%25' stop-color='%2314b8a6'/><stop offset='100%25' stop-color='%232463eb'/></linearGradient></defs><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' fill='url(%23g)' font-family='-apple-system,BlinkMacSystemFont,sans-serif' font-weight='900' font-size='24' letter-spacing='-1.5'>JS</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%231a73e8'/><stop offset='50%25' stop-color='%2314b8a6'/><stop offset='100%25' stop-color='%232463eb'/></linearGradient></defs><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' fill='url(%23g)' font-family='-apple-system,BlinkMacSystemFont,sans-serif' font-weight='900' font-size='24' letter-spacing='-1.5'>JS</text></svg>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Jordan Sycip</title>
@@ -187,13 +187,14 @@
 
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo">JS</a>
+            <a href="/" class="logo">JS</a>
             <ul class="nav-links">
-                <li><a href="">Home</a></li>
-                <li><a href="experience">Experience</a></li>
-                <li><a href="projects">Projects</a></li>
-                <li><a href="skills" class="active">Skills & Certs</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/experience">Experience</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/skills">Skills & Certs</a></li>
+                <!-- The active class is now correctly placed here on the contact page -->
+                <li><a class="active" href="/contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -247,7 +248,7 @@
     <script>
         window.onscroll = function() { scrollFunction() };
 
-        function scrollFunction() {
+        fnction scrollFunction() {
         var scrollTopBtn = document.getElementById("scrollTopBtn");
         if (document.body.scrollTop > (document.body.scrollHeight / 2) ||
         document.documentElement.scrollTop > (document.documentElement.scrollHeight / 2)) {
