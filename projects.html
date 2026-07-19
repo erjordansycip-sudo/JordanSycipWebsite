@@ -6,7 +6,13 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
 body{background:#0f172a;color:#cbd5e1;line-height:1.6}
-nav{background:#1e293b;position:sticky;top:0}.nav-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}.logo{color:#14b8a6;text-decoration:none;font-size:1.5rem;font-weight:bold}.nav-links{display:flex;list-style:none;gap:2rem}.nav-links a{color:#94a3b8;text-decoration:none}.nav-links a.active,.nav-links a:hover{color:#14b8a6}
+nav{background:#1e293b;position:sticky;top:0}
+    .nav-links a {
+        color: #94a3b8;
+        text-decoration: none;
+        font-weight: 500; /* <--- THIS RIGHT HERE */
+        transition: color 0.3s ease;
+    }.nav-container{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem}.logo{color:#14b8a6;text-decoration:none;font-size:1.5rem;font-weight:bold}.nav-links{display:flex;list-style:none;gap:2rem}.nav-links a{color:#94a3b8;text-decoration:none}.nav-links a.active,.nav-links a:hover{color:#14b8a6}
 .container{max-width:1200px;margin:auto;padding:4rem 2rem}.section-title{color:#f8fafc;font-size:2rem;margin-bottom:2rem;border-left:4px solid #14b8a6;padding-left:1rem}
 .project-block{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:2.5rem;margin-bottom:3rem;transition:.3s}.project-block:hover{border-color:#14b8a6}
 .project-header{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #334155;padding-bottom:1rem;margin-bottom:1rem;flex-wrap:wrap}
@@ -15,7 +21,6 @@ nav{background:#1e293b;position:sticky;top:0}.nav-container{max-width:1200px;mar
 .project-details h4{color:#f8fafc;margin-bottom:1rem}.project-details ul{margin-left:1.5rem}.project-details li{margin-bottom:.6rem}
 footer{text-align:center;padding:2rem;color:#64748b;border-top:1px solid #1e293b}
 </style></head>
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
     const currentPath = window.location.pathname.toLowerCase();

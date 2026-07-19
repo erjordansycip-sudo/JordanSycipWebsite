@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills & Certifications | Jordan Sycip</title>
+    <title>Skills & Certs | Jordan Sycip</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%231a73e8'/><stop offset='50%25' stop-color='%2314b8a6'/><stop offset='100%25' stop-color='%232463eb'/></linearGradient></defs><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' fill='url(%23g)' font-family='-apple-system,BlinkMacSystemFont,sans-serif' font-weight='900' font-size='24' letter-spacing='-1.5'>JS</text></svg>">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: #0f172a;
+            background-color: #0f172a;
             color: #cbd5e1;
-            line-height: 1.6
+            line-height: 1.6;
         }
 
         nav {
-            background: #1e293b;
+            background-color: #1e293b;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -27,40 +28,41 @@
 
         .nav-container {
             max-width: 1200px;
-            margin: auto;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem
+            padding: 1rem 2rem;
         }
 
         .logo {
             color: #14b8a6;
-            text-decoration: none;
             font-size: 1.5rem;
-            font-weight: bold
+            font-weight: bold;
+            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem
+            gap: 2rem;
         }
 
             .nav-links a {
                 color: #94a3b8;
-                text-decoration: none
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s ease;
             }
 
-                .nav-links a.active,
-                .nav-links a:hover {
-                    color: #14b8a6
+                .nav-links a:hover, .nav-links a.active {
+                    color: #14b8a6;
                 }
 
         .container {
             max-width: 1200px;
-            margin: auto;
-            padding: 4rem 2rem
+            margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
         .section-title {
@@ -68,173 +70,272 @@
             font-size: 2rem;
             margin-bottom: 2rem;
             border-left: 4px solid #14b8a6;
-            padding-left: 1rem
+            padding-left: 1rem;
         }
 
-        .skills-grid {
+        /* Academic Distinction Premium Banner Layout */
+        .academic-honor-banner {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid #14b8a6;
+            border-radius: 10px;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.15);
+            transition: border-color 0.3s ease;
+        }
+
+        /* Interactive Cap Badge Link Structure */
+        .honor-medal-link {
+            text-decoration: none !important;
+            display: inline-block;
+            outline: none;
+        }
+
+            /* Wipes away any stubborn browser emoji link text lines */
+            .honor-medal-link * {
+                text-decoration: none !important;
+            }
+
+        .honor-medal {
+            font-size: 3.5rem;
+            background-color: #0f172a;
+            padding: 1rem;
+            border-radius: 50%;
+            border: 2px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+            height: 90px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Hover Mechanics: Glow Ring and Scale Up */
+        .honor-medal-link:hover .honor-medal {
+            transform: scale(1.08);
+            border-color: #14b8a6;
+            background-color: #1e293b;
+            box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+        }
+
+        .honor-details h3 {
+            color: #f8fafc;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .honor-details p {
+            color: #94a3b8;
+        }
+
+        .honor-details strong {
+            color: #14b8a6;
+        }
+
+        /* Verification Indicator Label */
+        .verification-callout {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #14b8a6;
+            font-weight: 600;
+        }
+
+        /* Certifications Grid */
+        .cert-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 2rem;
             margin-bottom: 4rem;
         }
 
-        .skill-card {
-            background: #1e293b;
+        @media (max-width: 768px) {
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .academic-honor-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+        }
+
+        .cert-card {
+            background-color: #1e293b;
             border: 1px solid #334155;
             border-radius: 8px;
             padding: 2rem;
-            transition: .3s
-        }
-
-            .skill-card:hover {
-                border-color: #14b8a6
-            }
-
-            .skill-card h3 {
-                color: #f8fafc;
-                margin-bottom: 1.25rem;
-                border-bottom: 1px solid #334155;
-                padding-bottom: 0.5rem;
-            }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-tag {
-            color: #14b8a6;
-            background: #0f172a;
-            padding: .35rem .75rem;
-            border-radius: 15px;
-            font-size: .9rem;
-            font-weight: bold;
-            border: 1px solid #334155;
-        }
-
-        .cert-list {
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            padding: 2.5rem;
-        }
-
-        .cert-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid #334155;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-            .cert-item:last-child {
-                border-bottom: none;
-                padding-bottom: 0;
+            .cert-card:hover {
+                transform: translateY(-3px);
+                border-color: #14b8a6;
             }
 
-        .cert-info h4 {
+        .cert-info h3 {
             color: #f8fafc;
-            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
         }
 
         .cert-info p {
             color: #94a3b8;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
-        .cert-date {
+        .view-btn {
+            background-color: #0f172a;
             color: #14b8a6;
+            border: 1px solid #14b8a6;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
             font-weight: bold;
-            font-size: 0.95rem;
+            transition: background-color 0.3s, color 0.3s;
         }
+
+            .view-btn:hover {
+                background-color: #14b8a6;
+                color: #0f172a;
+            }
+
+        /* Technical Skills Groups Grid */
+        .skills-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-group {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+            .skill-group h3 {
+                color: #14b8a6;
+                margin-bottom: 1rem;
+                border-bottom: 1px solid #334155;
+                padding-bottom: 0.5rem;
+            }
+
+        .skill-list {
+            list-style: none;
+        }
+
+            .skill-list li {
+                margin-bottom: 0.5rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+                .skill-list li::before {
+                    content: "▹";
+                    color: #14b8a6;
+                }
 
         footer {
             text-align: center;
             padding: 2rem;
             color: #64748b;
-            border-top: 1px solid #1e293b
+            border-top: 1px solid #1e293b;
+            margin-top: 4rem;
         }
     </style>
 </head>
+<body>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const currentPath = window.location.pathname.toLowerCase();
-    const navLinks = document.querySelectorAll(".nav-links a");
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">JS</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/experience">Experience</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/skills" class="active">Skills & Certs</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    navLinks.forEach(link => {
-    const text = link.textContent.toLowerCase().trim();
-
-    // Match based on page content name
-    if ((currentPath === "/" || currentPath.includes("index.html")) && text === "home") {
-    link.classList.add("active");
-    } else if (currentPath.includes("experience") && text === "experience") {
-    link.classList.add("active");
-    } else if (currentPath.includes("projects") && text === "projects") {
-    link.classList.add("active");
-    } else if (currentPath.includes("skills") && text.includes("skills")) {
-    link.classList.add("active");
-    } else if (currentPath.includes("contact") && text === "contact") {
-    link.classList.add("active");
-    }
-    });
-    });
-</script>
-
-<nav>
-    <div class="nav-container">
-        <a href="/" class="logo">JS</a>
-        <ul class="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/experience">Experience</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/skills">Skills & Certs</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
     <main class="container">
-        <h2 class="section-title">Technical Expertise & Certifications</h2>
 
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Core Engineering</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">SPC</span>
-                    <span class="skill-tag">DMAIC</span>
-                    <span class="skill-tag">Operations Research</span>
-                    <span class="skill-tag">Process Capability (Cp/Cpk)</span>
+        <!-- Standout Showcase: Department Salutatorian -->
+        <h2 class="section-title">Academic Distinctions</h2>
+        <section class="academic-honor-banner">
+            <!-- Graduation Cap Underline-Free Link Container -->
+            <a href="https://www.cpp.edu/engineering/ime/documents/nl2425.pdf" target="_blank" class="honor-medal-link" style="text-decoration: none;" title="Click to view verification document">
+                <div class="honor-medal">🎓</div>
+            </a>
+
+            <div class="honor-details">
+                <h3>Department of Industrial Engineering Salutatorian</h3>
+                <p>Class of 2025 | California State Polytechnic University, Pomona</p>
+                <p style="margin-top: 0.25rem; font-size: 0.95rem;">Graduated ranking <strong>#2 overall</strong> across the entire engineering cohort with a cumulative GPA of <strong>3.59</strong>.</p>
+                <span class="verification-callout">ℹ Click graduation cap badge to verify official document</span>
+            </div>
+        </section>
+
+        <!-- Professional Credentials Section -->
+        <h2 class="section-title">Professional Credentials</h2>
+
+        <div class="cert-grid">
+            <div class="cert-card">
+                <div class="cert-info">
+                    <h3>Engineer-in-Training (EIT)</h3>
+                    <p>State Board Registration / April 2026</p>
                 </div>
+                <a href="https://account.ncees.org/rn/2446028-1788188-d0873fb" target="_blank" class="view-btn" style="text-decoration: none;">Verify Document</a>
             </div>
 
-            <div class="skill-card">
-                <h3>Software & Systems</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Minitab</span>
-                    <span class="skill-tag">LINGO</span>
-                    <span class="skill-tag">LP Solve</span>
-                    <span class="skill-tag">Microsoft Access</span>
-                    <span class="skill-tag">Arduino</span>
+            <div class="cert-card">
+                <div class="cert-info">
+                    <h3>Six Sigma Green Belt</h3>
+                    <p>Quality Analysis / January 2024</p>
                 </div>
+                <a href="https://certificates.iise.org/e1de97bf-f640-45be-bc67-cafc758d7307#acc.oSkhp3CT" target="_blank" class="view-btn" style="text-decoration: none;">Verify Document</a>
             </div>
         </div>
 
-        <h2 class="section-title">Professional Credentials</h2>
-        <div class="cert-list">
-            <div class="cert-item">
-                <div class="cert-info">
-                    <h4>Certified Six Sigma Green Belt (CSSGB)</h4>
-                    <p>ASQ - American Society for Quality</p>
-                </div>
-                <div class="cert-date">2026</div>
+        <!-- Technical Expertise Breakdown -->
+        <h2 class="section-title">Technical Expertise</h2>
+
+        <div class="skills-section">
+            <div class="skill-group">
+                <h3>Systems & Planning</h3>
+                <ul class="skill-list">
+                    <li>SAP ERP Architecture</li>
+                    <li>Discrete Event Simulation</li>
+                    <li>Production Planning & Control</li>
+                    <li>Facility Layout Design</li>
+                </ul>
             </div>
-            <div class="cert-item">
-                <div class="cert-info">
-                    <h4>In-Progress / Professional Milestone</h4>
-                    <p>Continuous Improvement Institute</p>
-                </div>
-                <div class="cert-date">Current</div>
+            <div class="skill-group">
+                <h3>Software Tools</h3>
+                <ul class="skill-list">
+                    <li>AutoCAD 2D/3D</li>
+                    <li>Minitab SPC Packages</li>
+                    <li>Honeywell InControlWare</li>
+                    <li>ProModel</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3>Programming</h3>
+                <ul class="skill-list">
+                    <li>Python (Data Analytics)</li>
+                    <li>R (Statistical Modelling)</li>
+                    <li>SQL (Database Queries)</li>
+                </ul>
             </div>
         </div>
     </main>
